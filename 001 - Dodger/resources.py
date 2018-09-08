@@ -17,12 +17,13 @@ player_image = pyglet.resource.image('ship.png')
 center_image(player_image)
 
 # enemy images
-enemy_images = []
-enemy_images.append(pyglet.resource.image('enemy1.png'))
-enemy_images.append(pyglet.resource.image('enemy1.png'))
-enemy_images.append(pyglet.resource.image('enemy2.png'))
-enemy_images.append(pyglet.resource.image('enemy3.png'))
-enemy_images.append(pyglet.resource.image('enemy4.png'))
+enemy_images = [
+    pyglet.resource.image('enemy1.png'),
+    pyglet.resource.image('enemy1.png'),
+    pyglet.resource.image('enemy2.png'),
+    pyglet.resource.image('enemy3.png'),
+    pyglet.resource.image('enemy4.png')
+]
 
 for enemy_image in enemy_images:
     center_image(enemy_image)

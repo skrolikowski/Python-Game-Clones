@@ -1,14 +1,14 @@
 import pyglet
 import const
 
-from pybox import math
+from pybox.math import vec2d, util
 
 class Entity(pyglet.sprite.Sprite):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def applyForce(self, dx, dy):
-        force = math.vec2d.Vec2d(dx, dy)
+        force = vec2d.Vec2D(dx, dy)
         force.scale(1 / self.mass)
 
         self.acc += force
@@ -22,7 +22,10 @@ class Entity(pyglet.sprite.Sprite):
         return x, y, w, h
 
     def AABB(self):
-        return math.util.computeAABB(self.x, self.y, self.width, self.height, 0)
+        return self.x - self.width / 2,\
+               self.y - self.height / 2,\
+               self.x + self.width / 2,\
+               self.y + self.height / 2
 
     def inBounds(self, x, y):
         return x - self.width // 2 > 0 and \
@@ -37,8 +40,6 @@ class Entity(pyglet.sprite.Sprite):
                x > const.WIDTH or \
                y + h < 0 or \
                y > const.HEIGHT
-
-        return False
 
     def nextPosition(self):
         # apply accel forces

@@ -1,11 +1,10 @@
-import pyglet
 import pybox
-import pymunk
 import random
+import pymunk.pyglet_util
 
-from pybox.variables import *
+from app.variables import *
 from pybox.graphics import shape2d
-from pyglet.window import key, mouse
+from pyglet.window import key
 
 
 @pybox.game.load
@@ -28,8 +27,8 @@ def load(win):
         line.elasticity = 0.95
         line.friction = 0.9
 
-        shape2d.Line(111.0, 280.0, 407.0, 246.0)
-        shape2d.Line(407.0, 246.0, 407.0, 343.0)
+        shape2d.Segment(111.0, 280.0, 407.0, 246.0)
+        shape2d.Segment(407.0, 246.0, 407.0, 343.0)
 
     space.add(lines)
 

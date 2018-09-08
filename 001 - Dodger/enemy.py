@@ -8,8 +8,8 @@ class Enemy(entity.Entity):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.vel = math.vec2d.Vec2d()
-        self.acc = math.vec2d.Vec2d()
+        self.vel = math.vec2d.Vec2D()
+        self.acc = math.vec2d.Vec2D()
         self.speed = 30
         self.max_speed = 50
         self.mass = random.randint(1, 3)
